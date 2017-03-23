@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+{%block content%}
+<h2>lista d restaurantes papae!!!</h2>
+{%for rest in restaurantes%}
+	
+      <div class="row">
+        <div class="col s12 m7">
+          <div class="card">
+            <div class="card-image">
+              <img src="/media/{{rest.imagen.url}}">
+              <h3>Nombre: {{rest.nombre}}</h3>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a href="{%url 'restaurantes:detail' rest.id%}">Detalle</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {%empty%}
+	<h2>No hay donde comer :(</h2>
+{%endfor%}
+{%endblock content%}
